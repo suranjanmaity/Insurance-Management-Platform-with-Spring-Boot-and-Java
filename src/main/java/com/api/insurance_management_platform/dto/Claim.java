@@ -12,8 +12,7 @@ public class Claim {
     private String description;
     private String claimDate;
     private String claimStatus;
-    @ManyToOne(cascade= {CascadeType.PERSIST,
-        CascadeType.MERGE})
+    @ManyToOne(cascade= CascadeType.ALL)
     private InsurancePolicy insurancePolicy;
 
 

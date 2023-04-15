@@ -33,6 +33,9 @@ public class ClaimDao {
                 if((claim.getClaimDate()!=null)&&(claim.getClaimDate()!=dbClaim.getClaimDate())){
                     dbClaim.setClaimDate(claim.getClaimDate());
                 }
+                if((claim.getInsurancePolicy()!=null)&&(claim.getInsurancePolicy()!=dbClaim.getInsurancePolicy())){
+                    dbClaim.setInsurancePolicy(claim.getInsurancePolicy());
+                }
             }
             claimRepository.save(dbClaim);
             return dbClaim;

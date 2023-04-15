@@ -14,16 +14,16 @@ public class Client {
     private String clientDOB;
     private String clientAddress;
     private long clientContact;
-    @OneToMany(mappedBy = "client")
-    private List<InsurancePolicy> insurancePolicies;
+    // @OneToMany(mappedBy = "client")
+    // private List<InsurancePolicy> insurancePolicies;
 
     
-    public List<InsurancePolicy> getInsurancePolicies() {
-        return insurancePolicies;
-    }
-    public void setInsurancePolicies(List<InsurancePolicy> insurancePolicies) {
-        this.insurancePolicies = insurancePolicies;
-    }
+    // public List<InsurancePolicy> getInsurancePolicies() {
+    //     return insurancePolicies;
+    // }
+    // public void setInsurancePolicies(List<InsurancePolicy> insurancePolicies) {
+    //     this.insurancePolicies = insurancePolicies;
+    // }
     public int getClientId() {
         return clientId;
     }

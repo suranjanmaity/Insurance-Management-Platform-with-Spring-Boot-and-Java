@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.insurance_management_platform.dto.Client;
@@ -29,7 +31,7 @@ public class ClientController {
     public void deleteClient(@PathVariable int id){
         service.deleteClient(id);
     }
-    @GetMapping("/api/clients")  
+    @RequestMapping(value = "/api/clients", method = RequestMethod.GET)
     public List<Client> getAllClients(){
         return service.getAllClients();
     }

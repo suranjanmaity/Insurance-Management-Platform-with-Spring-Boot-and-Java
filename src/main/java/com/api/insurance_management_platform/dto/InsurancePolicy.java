@@ -17,19 +17,18 @@ public class InsurancePolicy {
     private Double policyPremium;
     private String policyStartDate;
     private String policyEndDate;
-    @ManyToOne(cascade= {CascadeType.PERSIST,
-        CascadeType.MERGE})
+    @ManyToOne(cascade= CascadeType.ALL)
     private Client client;
-    @OneToMany(mappedBy = "insurancePolicy")
-    private List<Claim> claims;
+    // @OneToMany(mappedBy = "insurancePolicy")
+    // private List<Claim> claims;
 
 
-    public List<Claim> getClaims() {
-        return claims;
-    }
-    public void setClaims(List<Claim> claims) {
-        this.claims = claims;
-    }
+    // public List<Claim> getClaims() {
+    //     return claims;
+    // }
+    // public void setClaims(List<Claim> claims) {
+    //     this.claims = claims;
+    // }
     public int getPolicyNumber() {
         return policyNumber;
     }

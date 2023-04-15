@@ -37,6 +37,10 @@ public class InsurancePolicyDao {
                 if((insurancePolicy.getPolicyEndDate()!=dbInsurancePolicy.getPolicyEndDate())&&(insurancePolicy.getPolicyEndDate()!=null)){
                     dbInsurancePolicy.setPolicyEndDate(insurancePolicy.getPolicyEndDate());
                 }
+                if((insurancePolicy.getClient()!=dbInsurancePolicy.getClient())&&(insurancePolicy.getClient()!=null)){
+                    dbInsurancePolicy.setClient(insurancePolicy.getClient());
+                }
+                
             }
             insurancePolicyRepository.save(dbInsurancePolicy);
             return dbInsurancePolicy;
