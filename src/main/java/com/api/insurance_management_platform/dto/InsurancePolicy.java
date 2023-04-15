@@ -1,11 +1,11 @@
 package com.api.insurance_management_platform.dto;
 
-import java.text.DateFormat;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -15,12 +15,15 @@ public class InsurancePolicy {
     private String policyType;
     private Double policyCoverageAmount;
     private Double policyPremium;
-    private DateFormat policyStartDate;
-    private DateFormat policyEndDate;
-    @ManyToMany
-    private List<Client> clients;
-    @OneToMany
+    private String policyStartDate;
+    private String policyEndDate;
+    @ManyToOne(cascade= {CascadeType.PERSIST,
+        CascadeType.MERGE})
+    private Client client;
+    @OneToMany(mappedBy = "insurancePolicy")
     private List<Claim> claims;
+
+
     public List<Claim> getClaims() {
         return claims;
     }
@@ -51,23 +54,23 @@ public class InsurancePolicy {
     public void setPolicyPremium(Double policyPremium) {
         this.policyPremium = policyPremium;
     }
-    public DateFormat getPolicyStartDate() {
+    public String getPolicyStartDate() {
         return policyStartDate;
     }
-    public void setPolicyStartDate(DateFormat policyStartDate) {
+    public void setPolicyStartDate(String policyStartDate) {
         this.policyStartDate = policyStartDate;
     }
-    public DateFormat getPolicyEndDate() {
+    public String getPolicyEndDate() {
         return policyEndDate;
     }
-    public void setPolicyEndDate(DateFormat policyEndDate) {
+    public void setPolicyEndDate(String policyEndDate) {
         this.policyEndDate = policyEndDate;
     }
-    public List<Client> getClients() {
-        return clients;
+    public Client getClient() {
+        return client;
     }
-    public void setClients(List<Client> clients) {
-        this.clients = clients;
+    public void setClient(Client client) {
+        this.client = client;
     }
     
 }

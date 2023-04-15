@@ -1,7 +1,6 @@
 package com.api.insurance_management_platform.dto;
 
-import java.text.DateFormat;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
@@ -11,10 +10,13 @@ public class Claim {
     @Id
     private int claimNumber;
     private String description;
-    private DateFormat claimDate;
+    private String claimDate;
     private String claimStatus;
-    @ManyToOne
+    @ManyToOne(cascade= {CascadeType.PERSIST,
+        CascadeType.MERGE})
     private InsurancePolicy insurancePolicy;
+
+
     public InsurancePolicy getInsurancePolicy() {
         return insurancePolicy;
     }
@@ -33,10 +35,10 @@ public class Claim {
     public void setDescription(String description) {
         this.description = description;
     }
-    public DateFormat getClaimDate() {
+    public String getClaimDate() {
         return claimDate;
     }
-    public void setClaimDate(DateFormat claimDate) {
+    public void setClaimDate(String claimDate) {
         this.claimDate = claimDate;
     }
     public String getClaimStatus() {

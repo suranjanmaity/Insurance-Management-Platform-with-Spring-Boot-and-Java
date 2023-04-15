@@ -1,22 +1,23 @@
 package com.api.insurance_management_platform.dto;
 
-import java.text.DateFormat;
 import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Client {
     @Id
     private int clientId;
     private String clientName;
-    private DateFormat clientDOB;
+    private String clientDOB;
     private String clientAddress;
     private long clientContact;
-    @ManyToMany
+    @OneToMany(mappedBy = "client")
     private List<InsurancePolicy> insurancePolicies;
+
+    
     public List<InsurancePolicy> getInsurancePolicies() {
         return insurancePolicies;
     }
@@ -35,10 +36,10 @@ public class Client {
     public void setClientName(String clientName) {
         this.clientName = clientName;
     }
-    public DateFormat getClientDOB() {
+    public String getClientDOB() {
         return clientDOB;
     }
-    public void setClientDOB(DateFormat clientDOB) {
+    public void setClientDOB(String clientDOB) {
         this.clientDOB = clientDOB;
     }
     public String getClientAddress() {
